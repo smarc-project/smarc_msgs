@@ -52,12 +52,15 @@ find_package(catkin REQUIRED COMPONENTS
 add_message_files(
   FILES
   CommsMessage.msg
+  SMTask.msg
+  StringPair.msg
 )
 
 ## Generate services in the 'srv' folder
 add_service_files(
   FILES
   CellOccupied.srv
+  AddTask.srv
 )
 
 ## Generate actions in the 'action' folder
