@@ -10,6 +10,10 @@ string TIME_TYPE="____time____"
 string DURATION_TYPE="____duration____"
 # Constant for bool type
 string BOOL_TYPE="____bool____"
+# Constant for string type
+string STRING_TYPE=____str____
+# Constant for posestamped type
+string POSE_STAMPED_TYPE=____pose____
 
 # This holds the id of the task
 uint64 task_id
@@ -18,7 +22,7 @@ uint64 task_id
 uint64 altitude
 
 # WP Depth
-uint64 dept
+uint64 depth
 
 # WP X
 uint64 x
@@ -33,7 +37,7 @@ uint64 theta
 string state
 
 # The action server to be called to trigger the task
-string action
+string action_type
 
 # Action server topic
 string action_topic
@@ -41,11 +45,5 @@ string action_topic
 # The maximum duration of the task
 duration max_duration
 
-# The scheduler execution time
-time execution_time
-
-# Priority of a task - higher number = higher priority
-uint64 priority
-
 # Additional arguments to the action server call
-smarc_msgs/StringPair[] arguments
+smarc_msgs/StringArray[] action_arguments
