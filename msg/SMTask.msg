@@ -39,8 +39,5 @@ string action_topic
 # Termination condition: maximum duration of the task. Set to zero if not used
 duration max_duration
 
-# Result of the action execution. Do not set when calling action
-string action_result
-
 # Additional arguments to the action server call
 smarc_msgs/StringArray[] action_arguments
