@@ -57,6 +57,7 @@ add_message_files(
   SMTask.msg
   StringPair.msg
   StringArray.msg
+  ExecutionStatus.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -64,6 +65,7 @@ add_service_files(
   FILES
   CellOccupied.srv
   AddTask.srv
+  AddTasks.srv
 )
 
 ## Generate actions in the 'action' folder
