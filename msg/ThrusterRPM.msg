@@ -1,1 +1,1 @@
-float32 rpm # NOTE: can be negative also
+int32 rpm # NOTE: can be negative also
