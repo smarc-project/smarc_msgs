@@ -58,6 +58,11 @@ add_message_files(
   StringPair.msg
   StringArray.msg
   ExecutionStatus.msg
+  Leak.msg
+  ThrusterRPM.msg
+  ThrusterFeedback.msg
+  FloatStamped.msg
+  LatLonStamped.msg
 )
 
 ## Generate services in the 'srv' folder
