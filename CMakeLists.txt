@@ -61,6 +61,8 @@ add_message_files(
   Leak.msg
   ThrusterRPM.msg
   ThrusterFeedback.msg
+  DualThrusterRPM.msg
+  DualThrusterFeedback.msg
   FloatStamped.msg
   LatLonStamped.msg
   CTDFeedback.msg
