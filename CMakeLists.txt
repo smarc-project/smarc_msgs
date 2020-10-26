@@ -63,6 +63,7 @@ add_message_files(
   ThrusterFeedback.msg
   FloatStamped.msg
   LatLonStamped.msg
+  CTDFeedback.msg
 )
 
 ## Generate services in the 'srv' folder
