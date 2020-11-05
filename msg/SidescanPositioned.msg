@@ -4,4 +4,4 @@ float64 roll
 float64 pitch
 float64 yaw
 float64 depth
-smarc_msgs/StampedSidescan sidescan
+smarc_msgs/SidescanStamped sidescan
