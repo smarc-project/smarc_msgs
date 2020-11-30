@@ -28,7 +28,7 @@ This section discusses the division of the interfaces into namespaces and repos.
 Namespaces
 ----------
 
-We will refer to the global vehicle namespace as``/vehicle``. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. ``/sam`` or ``/lolo``. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
+We will refer to the global vehicle namespace as ``/vehicle``. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. ``/sam`` or ``/lolo``. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
 
 * ``/vehicle/core`` -  contains the sensors and actuators that are always available on the vehicle, also when no controllers or other higher-level functionality is running. It also includes basic control interfaces such as abort functionality, see `Core interface`_
 * ``/vehicle/ctrl`` - contains topics and nodes relating to actuator controllers (e.g. depth, heading, altitude control), see `Controller interfaces`_
@@ -58,7 +58,7 @@ Core interface
 
 **Core sensor interfaces**
 
-The base set of sensors are all under the /vehicle/core namespace. They are all publishers.
+The base set of sensors are all under the ``/vehicle/core`` namespace. They are all publishers.
 All of these messages contain headers with timestamp and they should be filled out as well as possible.
 
 * IMU - ``sensor_msgs/Imu`` on ``/vehicle/core/imu``
@@ -76,7 +76,7 @@ More will be added in the future, see `Near future extensions`_ for possible exa
 
 Commands (subscribed to by vehicle):
 
-* RPM - ``smarc_msgs/ThrusterRPM`` on ``/vehicle/core/thruster{N}_cmd``, where N signifies the number of the thruster. Thrusters are numbered either left-to-right or front-to-back, or both, depending on the configuration. **NOTE:** Needs to be published at 10Hz to have effect.
+* Thruster RPM - ``smarc_msgs/ThrusterRPM`` on ``/vehicle/core/thruster{N}_cmd``, where N signifies the number of the thruster. Thrusters are numbered either left-to-right or front-to-back, or both, depending on the configuration. **NOTE:** Needs to be published at 10Hz to have effect.
 
 Feedbacks (published by vehicle):
 
@@ -128,6 +128,15 @@ All controllers reside in the ``/vehicle/ctrl`` namespace.
 
 Planners (advanced controllers)
 -------------------------------
+
+Planners are high-level components that may use several primitive controllers to achieve a task.
+Examples may be navigation to a waypoint, or surveying a pipeline. Their interface is defined
+using `actionlib actions <http://wiki.ros.org/actionlib>`_. The rationale for using actionlib is
+that these are often long-running tasks. The higher-level decision making system (behavior tree)
+therefore needs ability to monitor progress or cancel the task. actionlib phttp://wiki.ros.org/actionlibrovides an interface for
+both of these things, together with convenience libraries in python and c++ to implement actions.
+
+**Actions**
 
 * Go to waypoint - ``smarc_msgs/WaypointAction`` on ``/vehicle/ctrl/goto_waypoint``
 
