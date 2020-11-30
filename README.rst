@@ -20,6 +20,10 @@ To give some examples, our goal is to share at least the following components:
 
 It should be noted that the interface defined here might only be a subset of the full interface on the vehicle ROS system. Reasons for adding more (non-standard) interfaces might be differentiated actuators, which can not be shared across vehicles, or that some vehicle provides more sensors or other sources of information.
 
+The general philosophy of this document is that we need to test out interfaces on at least one vehicle before proposing to integrate them
+in  this standard interface. If a new interface is needed, and has been tested, open a `pull request <https://github.com/smarc-project/smarc_msgs/compare>`_
+with the proposed changes!
+
 Preliminaries
 =============
 
