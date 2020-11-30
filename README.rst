@@ -135,6 +135,7 @@ All dead reckoning topics and nodes reside within the ``/vehicle/dr`` namespace
 **Topics**
 
 * Dead reckoning odometry (poses, velocities and uncertainties) - ``nav_msgs/Odometry`` on topic ``/vehicle/dr/odom``
+* Latitude longitude position - ``geographic_msgs/GeoPoint`` on ``/vehicle/dr/lat_lon``
 
 TF
 --
@@ -179,6 +180,10 @@ Apart from the services, the `tf_lat_lon package <https://github.com/smarc-proje
 
 * Lat lon to UTM conversion - ``smarc_msgs/LatLonToUTM`` on ``/vehicle/dr/lat_lon_to_utm``
 * UTM to lat lon conversion - ``smarc_msgs/UTMToLatLon`` on ``/vehicle/dr/utm_to_lat_lon``
+
+**Topics (if needed for `Dead reckoning`_interface)
+
+* Latitude longitude from TF - ``geographic_msgs/GeoPoint`` on ``/vehicle/dr/lat_lon``
 
 Controllers
 -----------
