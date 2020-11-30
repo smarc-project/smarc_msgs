@@ -28,7 +28,7 @@ This section discusses the division of the interfaces into namespaces and repos.
 Namespaces
 ----------
 
-We will refer to the global vehicle namespace as “/vehicle”. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. “/sam” or “/lolo”. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
+We will refer to the global vehicle namespace as``/vehicle``. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. ``/sam`` or ``/lolo``. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
 
 * ``/vehicle/core`` -  contains the sensors and actuators that are always available on the vehicle, also when no controllers or other higher-level functionality is running. It also includes basic control interfaces such as abort functionality
 * ``/vehicle/ctrl`` - contains topics and nodes relating to actuator controllers (e.g. depth, heading, altitude control)
