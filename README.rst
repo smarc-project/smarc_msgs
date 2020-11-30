@@ -30,7 +30,7 @@ Namespaces
 
 We will refer to the global vehicle namespace as``/vehicle``. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. ``/sam`` or ``/lolo``. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
 
-* ``/vehicle/core`` -  contains the sensors and actuators that are always available on the vehicle, also when no controllers or other higher-level functionality is running. It also includes basic control interfaces such as abort functionality
+* ``/vehicle/core`` -  contains the sensors and actuators that are always available on the vehicle, also when no controllers or other higher-level functionality is running. It also includes basic control interfaces such as abort functionality, see `Core interface`_
 * ``/vehicle/ctrl`` - contains topics and nodes relating to actuator controllers (e.g. depth, heading, altitude control)
 * ``/vehicle/dr`` - contains interfaces related to dead reckoning
 * ``/vehicle/payload`` - contains sensors and actuators that are not always available on all versions of all vehicles, such as sidescan, multi-beam, cameras etc.
@@ -47,8 +47,8 @@ Parameters
 
 The UTM zone parameters are used in dead reckoning interfaces and the planning (Neptus and behavior tree) interfaces. We define the interactions with our coordinate system in the TF section. Note that UTM zone should never be automatically calculated from GPS position but instead by looking at these parameters. The rationale is that this enables us to cross UTM zones while keeping the coordinate system. The UTM zones are defined in such a way as too allowing use even outside the bounds.
 
-* UTM Zone - int as ``/utm_zone``, should be set at startup, the UTM longitude zone to use throughout the mission
-* UTM band - string as ``/utm_band``, should be set at startup, the UTM latitude band to use throughout the mission
+* UTM Zone - ``int`` as ``/utm_zone``, should be set at startup, the UTM longitude zone to use throughout the mission
+* UTM band - ``string`` as ``/utm_band``, should be set at startup, the UTM latitude band to use throughout the mission
   
 Topic interfaces
 ================
