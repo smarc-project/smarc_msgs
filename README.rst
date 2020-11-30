@@ -97,7 +97,10 @@ Feedbacks (published by vehicle):
 Near future extensions
 ----------------------
 
-Then there are also a few preliminary ideas about how to combine the VBS and centre of gravity control
+There are also a few preliminary ideas about how to combine the VBS and centre of gravity control.
+Basically, you would be able to set the buoyancy of the vehicle with the VBS command, and have the
+TCG and LCG commands control physical or virtual masses moving around the vehicle (water being pumped
+around the tanks in the case of Lolo).
 
 **Publishers**
 
@@ -108,13 +111,21 @@ Then there are also a few preliminary ideas about how to combine the VBS and cen
 **Subscribers**
 
 * VBS feedback - ``smarc_msgs/PercentStamped`` on ``/vehicle/core/vbs_fb``
-* LCG feedback
-* TCG feedback
+* LCG feedback - to be decided
+* TCG feedback - to be decided
 
 Controller interfaces
 ---------------------
 
-All controllers reside in the ``/vehicle/ctrl`` namespace.
+All controllers reside in the ``/vehicle/ctrl`` namespace. The target of a control may
+refer to either of heading, depth, altitude, speed, pitch or roll.
+All controllers can be turned on or off by calling the ``/vehicle/ctrl/toggle_{target}_ctrl``
+service with ``true`` or ``false`` respectively. If a command setpoint is sent to
+````/vehicle/ctrl/{target}_setpoint`` when enabled, the controller tries to control,
+otherwise not. Instead of implementing this interface, one can also implement the control
+setpoint topic ``/vehicle/ctrl/{target}_setpoint_freq`` that requires publishing at 1hz
+to control but has no service. One can then use the ``control_throttle_service`` to automatically
+implement the actual interface, see `Controller implementation`_.
 
 **Basic controller topics**
 
@@ -221,8 +232,8 @@ Apart from the services, the `tf_lat_lon package <https://github.com/smarc-proje
 
 * Latitude longitude from TF - ``geographic_msgs/GeoPoint`` on ``/vehicle/dr/lat_lon``
 
-Controllers
------------
+Controller implementation
+-------------------------
 
 For each controller specified in the controller section, we may alternatively implement them to require setpoints at a certain frequency to keep going. In order to translate it to the interface above, we offer a node that repeats a setpoint at a certain frequency depending on if the service has been called to activate the controller. In the specification below, {target} may be either of heading, depth, altitude, speed, pitch or roll. Since they all take in std_msgs/Float64, we can just launch multiple instances of the same node, one for every controlled target.
 
