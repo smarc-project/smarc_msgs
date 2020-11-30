@@ -59,6 +59,7 @@ Core interface
 **Core sensor interfaces**
 
 The base set of sensors are all under the /vehicle/core namespace. They are all publishers.
+All of these messages contain headers with timestamp and they should be filled out as well as possible.
 
 * IMU - ``sensor_msgs/Imu`` on ``/vehicle/core/imu``
 * Pressure sensor - ``sensor_msgs/FluidPressure`` on ``/vehicle/core/pressure``
@@ -70,11 +71,14 @@ The base set of sensors are all under the /vehicle/core namespace. They are all 
 
 **Core actuator interface**
 
-Publishers
+These are the first actuator interfaces that will be part of the common interface.
+More will be added in the future, see `Near future extensions`_ for possible examples.
 
-* RPM - ``smarc_msgs/ThrusterRPM`` on ``/vehicle/core/thruster{N}_cmd``, where N signifies the number of the thruster. Thrusters are numbered either left-to-right or front-to-back, or both, depending on the configuration
+Commands (subscribed to by vehicle):
 
-Feedbacks
+* RPM - ``smarc_msgs/ThrusterRPM`` on ``/vehicle/core/thruster{N}_cmd``, where N signifies the number of the thruster. Thrusters are numbered either left-to-right or front-to-back, or both, depending on the configuration. **NOTE:** Needs to be published at 10Hz to have effect.
+
+Feedbacks (published by vehicle):
 
 * Thruster feedback - ``smarc_msgs/ThrusterFeedback`` on ``/vehicle/core/thruster{N}_fb``
 
