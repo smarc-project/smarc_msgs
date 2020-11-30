@@ -31,9 +31,9 @@ Namespaces
 We will refer to the global vehicle namespace as``/vehicle``. On the vehicles, this is replaced by the name of the vehicle, and may be e.g. ``/sam`` or ``/lolo``. All topics on the vehicles should be under this namespace. The rationale for this is mainly that we can then run multiple vehicle systems within one simulator session, without topic names colliding.
 
 * ``/vehicle/core`` -  contains the sensors and actuators that are always available on the vehicle, also when no controllers or other higher-level functionality is running. It also includes basic control interfaces such as abort functionality, see `Core interface`_
-* ``/vehicle/ctrl`` - contains topics and nodes relating to actuator controllers (e.g. depth, heading, altitude control)
-* ``/vehicle/dr`` - contains interfaces related to dead reckoning
-* ``/vehicle/payload`` - contains sensors and actuators that are not always available on all versions of all vehicles, such as sidescan, multi-beam, cameras etc.
+* ``/vehicle/ctrl`` - contains topics and nodes relating to actuator controllers (e.g. depth, heading, altitude control), see `Controller interfaces`_
+* ``/vehicle/dr`` - contains interfaces related to dead reckoning, see `Dead reckoning`_
+* ``/vehicle/payload`` - contains sensors and actuators that are not always available on all versions of all vehicles, such as sidescan, multi-beam, cameras etc., see `Payloads`_
 
 The rationale for dividing everything into high-level namespaces is that this makes it easier to debug the system with ROS tools. For example, the rqt_graph presents a visual overview of topics and tools organized by namespaces, and allows collapsing the ones we are not interested in. This allows debugging of the subparts, rather than the whole system.
 
