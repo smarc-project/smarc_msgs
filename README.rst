@@ -56,7 +56,7 @@ Topic interfaces
 Core interface
 --------------
 
-Core sensor interfaces
+**Core sensor interfaces**
 
 The base set of sensors are all under the /vehicle/core namespace. They are all publishers.
 
@@ -68,7 +68,7 @@ The base set of sensors are all under the /vehicle/core namespace. They are all 
 * Leak - smarc_msgs/Leak on /vehicle/core/leak
 * Battery - sensor_msgs/BatteryState on /vehicle/core/battery
 
-Core actuator interface
+**Core actuator interface**
 
 Publishers
 
@@ -76,20 +76,22 @@ Publishers
 * Feedbacks
 * Thruster feedback - smarc_msgs/ThrusterFeedback on /vehicle/core/thruster{N}_fb
 
-Core system interfaces
+**Core system interfaces**
 
 * Abort - std_msgs/Empty on /vehicle/core/abort, aborts current mission, vehicle should surface by itself, with no more control from ROS system
 
 Near future extensions
+----------------------
+
 Then there are also a few preliminary ideas about how to combine the VBS and centre of gravity control
 
-Publishers
+**Publishers**
 
 * VBS - smarc_msgs/PercentStamped on /vehicle/core/vbs_cmd
 * LCG - to be decided
 * TCG - to be decided
 
-Subscribers
+**Subscribers**
 
 * VBS feedback - smarc_msgs/PercentStamped on /vehicle/core/vbs_fb
 * LCG feedback
@@ -100,7 +102,7 @@ Controller interfaces
 
 All controllers reside in the /vehicle/ctrl namespace.
 
-Basic controller topics
+**Basic controller topics**
 
 * Heading - std_msgs/Float64 on /vehicle/ctrl/yaw_setpoint
 * Depth - std_msgs/Float64 on /vehicle/ctrl/depth_setpoint
@@ -109,7 +111,7 @@ Basic controller topics
 * Pitch - std_msgs/Float64 on /vehicle/ctrl/pitch_setpoint
 * Roll - std_msgs/Float64 on /vehicle/ctrl/roll_setpoint
 
-Basic controller services
+**Basic controller services**
 
 * Toggle heading ctrl - std_srvs/SetBool on /vehicle/ctrl/toggle_heading_ctrl
 * Toggle depth ctrl - std_srvs/SetBool on /vehicle/ctrl/toggle_depth_ctrl
@@ -128,7 +130,7 @@ Dead reckoning
 
 All dead reckoning topics and nodes reside within the /vehicle/dr namespace
 
-Topics
+**Topics**
 
 * Dead reckoning odometry (poses, velocities and uncertainties) - nav_msgs/Odometry on topic /vehicle/dr/odom
 
@@ -152,12 +154,12 @@ Payloads
 
 These are all optional. They do not need to be published to fulfill the ROS interface specification, but if they are, the should be available in the form presented here.
 
-Payload sensor topics
+**Payload sensor topics**
 
 * Sidescan - smarc_msgs/SideScan on topic /vehicle/payload/sidescan
 * CTD - smarc_msgs/CTD on topic /vehicle/payload/ctd
 
-Payload sensor services
+**Payload sensor services**
 
 * Enable/disable sidescan - std_srvs/SetBool on /vehicle/payload/toggle_sidescan - send true to turn on and false to turn off, returns true if successful
 
@@ -170,7 +172,7 @@ tf_lat_lon package
 ------------------
 Apart from the services, the `tf_lat_lon package <https://github.com/smarc-project/smarc_navigation/tree/noetic-devel/tf_lat_lon>`_ also offers a c++ library for doing conversions between tf and latitude/longitude.
 
-Services (always there)
+**Services (always there)**
 
 * Lat lon to UTM conversion - smarc_msgs/LatLonToUTM on /vehicle/dr/lat_lon_to_utm
 * UTM to lat lon conversion - smarc_msgs/UTMToLatLon on /vehicle/dr/utm_to_lat_lon
@@ -180,6 +182,6 @@ Controllers
 
 For each controller specified in the controller section, we may alternatively implement them to require setpoints at a certain frequency to keep going. In order to translate it to the interface above, we offer a node that repeats a setpoint at a certain frequency depending on if the service has been called to activate the controller. In the specification below, {target} may be either of heading, depth, altitude, speed, pitch or roll. Since they all take in std_msgs/Float64, we can just launch multiple instances of the same node, one for every controlled target.
 
-Nodes
+**Nodes**
 
 * control_throttle_service - offers service /vehicle/ctrl/toggle_{target}_ctrl to start and stop publishing to /vehicle/ctrl/{target}_setpoint_freq. Listens to /vehicle/ctrl/{target}_setpoint and republishes at a set frequency if started
