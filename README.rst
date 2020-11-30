@@ -60,6 +60,10 @@ Core interface
 
 The base set of sensors are all under the ``/vehicle/core`` namespace. They are all publishers.
 All of these messages contain headers with timestamp and they should be filled out as well as possible.
+Their `frame_id` should always be filled in with a valid frame in the TF tree that corresponds to the
+sensor position on the vehicle. Note that both measurements both in NED and ENU coordinates can be
+handled as long is care is taken to define the correct frame in the TF tree, see
+the `TF`_ section for more details.
 
 * IMU - ``sensor_msgs/Imu`` on ``/vehicle/core/imu``
 * Pressure sensor - ``sensor_msgs/FluidPressure`` on ``/vehicle/core/pressure``
@@ -154,7 +158,10 @@ TF
 --
 
 The TF tree can be constructed from the ``/vehicle/dr/odom`` topic. If ``/vehicle/dr/odom`` is present, it is therefore not necessary to provide the TF tree, although some implementations provide both as one package. For frame naming, we follow `REP 105 <https://www.ros.org/reps/rep-0105.html>`_ wherever possible, except that
-we define a utm frame instead of earth (see details below).
+we define a utm frame instead of earth (see details below). Note that using REP 105 also means that positions are generally defined in ENU
+coordinates, with ``x`` corresponding to easting, ``y`` to northing and ``z`` to height.
+
+**Main frames**
 
 * Shared UTM frame - ``utm``
 * Shared local map frame - ``map``
@@ -165,6 +172,18 @@ we define a utm frame instead of earth (see details below).
 The resulting TF tree has the structure ``utm -> map -> vehicle/odom -> vehicle/base_link -> vehicle/imu_link``. Note that ``imu_link`` can be exchanged for any other frame on the vehicle.
 
 The ``utm -> vehicle/base_link`` is the most interesting transform as it provides the vehicle pose in the coordinate system of the local UTM zone. Which UTM zone this is referring to is given by the ``/utm_zone`` and ``/utm_band`` parameters, which are set at start-up.
+
+**NED Convenience frames**
+
+These can be useful if we need to get poses in NED coordinates. It should not be used within the ROS system but only to relay information to other systems that used NED.
+
+* UTM NED frame - ``utm_ed`` - rotated parent to ``utm`` that allos getting vehicle pose in NED coordinates
+
+**A note on NED oriented sensors**
+
+If sensors such as IMU or GYRO report measurements in a NED coordinate system, we can still use those measurements
+as-is on the vehicle. However, we need to make sure that these sensors are added in a NED-rotated frame on the
+vehicle (upside down etc.). They can then be used in any pre-existing features that rely on TF to get measurement poses.
 
 Payloads
 --------
