@@ -9,6 +9,7 @@ project(smarc_msgs)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
+  geographic_msgs
   message_generation
   nav_msgs
   sensor_msgs
@@ -77,6 +78,8 @@ add_service_files(
   CellOccupied.srv
   AddTask.srv
   AddTasks.srv
+  LatLonToUTM.srv
+  UTMToLatLon.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -89,6 +92,7 @@ add_action_files(
 generate_messages(
   DEPENDENCIES
   geometry_msgs
+  geographic_msgs
   nav_msgs
   sensor_msgs
   std_msgs
