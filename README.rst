@@ -172,6 +172,7 @@ action to specify a waypoint to travel to. In addition to specifying navigation 
 altitude control, it also allows setting RPM or speed control. One can also disable all of
 these if other controllers should be used for these targets. Note that the action definition is
 future compatible in the sense that we can always add new fields in a source-compatible way.
+The action definition is therefore purposefully kept minimal in this proposal.
 
 **Actions**
 
