@@ -46,6 +46,18 @@ Repos
 
 This document defines interfaces based on messages in the standard ROS package repositories, and the `smarc_msgs repo <https://github.com/smarc-project/smarc_msgs>`_. Any vehicle-specific messages (outside the scope of this document) should be defined in separate packages. The rationale for this division is that the smarc_msgs repo together with this document (or future versions thereof) might be used as a specification of the shared interface.
 
+Units
+-----
+
+The following rules of thumbs holds for all interfaces:
+
+* All distances and positions are in meters (m) unless otherwise specified
+* All angles are reported in radians (rad)
+* All coordinate systems are right-handed (see `TF`_ for more information)
+
+As discussed in the `TF`_ section, we are using ENU coordinate systems. As this includes angles,
+the "heading" of the vehicle is reported as yaw (right-handed rotation z-axis pointing upwards).
+
 Parameters
 ==========
 
@@ -121,7 +133,7 @@ All controllers reside in the ``/vehicle/ctrl`` namespace. The target of a contr
 refer to either of heading, depth, altitude, speed, pitch or roll.
 All controllers can be turned on or off by calling the ``/vehicle/ctrl/toggle_{target}_ctrl``
 service with ``true`` or ``false`` respectively. If a command setpoint is sent to
-````/vehicle/ctrl/{target}_setpoint`` when enabled, the controller tries to control,
+``/vehicle/ctrl/{target}_setpoint`` when enabled, the controller tries to control,
 otherwise not. Instead of implementing this interface, one can also implement the control
 setpoint topic ``/vehicle/ctrl/{target}_setpoint_freq`` that requires publishing at 1hz
 to control but has no service. One can then use the ``control_throttle_service`` to automatically
