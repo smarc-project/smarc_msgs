@@ -141,6 +141,10 @@ implement the actual interface, see `Controller implementation`_.
 
 **Basic controller topics**
 
+If there are multiple controllers to control one target, they should generally all subscribe
+to the same topic. However, only one should be enabled using the services (see next section)
+at any given time.
+
 * Heading - ``std_msgs/Float64`` on ``/vehicle/ctrl/yaw_setpoint``
 * Depth - ``std_msgs/Float64`` on ``/vehicle/ctrl/depth_setpoint``
 * Altitude - ``std_msgs/Float64`` on ``/vehicle/ctrl/alt_setpoint``
@@ -150,12 +154,23 @@ implement the actual interface, see `Controller implementation`_.
 
 **Basic controller services**
 
+If the vehicle implements any of the control targets above, they should
+subscribe to the associated topic and offer the service below. If there are
+multiple controllers for the same target, the additional ones may offer services
+with other suitable names (within the ``/vehicle/ctrl`` namespace) in order to
+be enabled or disabled.
+
 * Toggle heading ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_heading_ctrl``
 * Toggle depth ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_depth_ctrl``
 * Toggle altitude ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_altitude_ctrl``
 * Toggle speed ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_speed_ctrl``
 * Toggle pitch ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_pitch_ctrl``
 * Toggle roll ctrl - ``std_srvs/SetBool`` on ``/vehicle/ctrl/toggle_roll_ctrl``
+
+ If the controllers are implemented using the
+``/vehicle/ctrl/{target}_setpoint_freq`` scheme (see `Controller implementation`_)
+they may need to offer multiple freq topics, that are then mapped to the
+same topic by the convenience node.
 
 Planners (advanced controllers)
 -------------------------------
