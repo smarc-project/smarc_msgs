@@ -164,7 +164,7 @@ Planners are high-level components that may use several primitive controllers to
 Examples may be navigation to a waypoint, or surveying a pipeline. Their interface is defined
 using `actionlib actions <http://wiki.ros.org/actionlib>`_. The rationale for using actionlib is
 that these are often long-running tasks. The higher-level decision making system (behavior tree)
-therefore needs ability to monitor progress or cancel the task. actionlib phttp://wiki.ros.org/actionlibrovides an interface for
+therefore needs ability to monitor progress or cancel the task. actionlib provides an interface for
 both of these things, together with convenience libraries in python and c++ to implement actions.
 
 **Actions**
@@ -236,6 +236,11 @@ tf_lat_lon package
 Apart from the services, the `tf_lat_lon package <https://github.com/smarc-project/smarc_navigation/tree/noetic-devel/tf_lat_lon>`_ also offers a c++ library for doing conversions between tf and latitude/longitude.
 
 **Services (always there)**
+
+We propose adding two new service types `smarc_msgs/LatLonToUTM <https://github.com/smarc-project/smarc_msgs/blob/interface/srv/LatLonToUTM.srv>`_
+and `smarc_msgs/UTMToLatLon <https://github.com/smarc-project/smarc_msgs/blob/interface/srv/UTMToLatLon.srv>`_ to convert between latitude
+longitude and UTM. Both these and the topic assume that the variables `/utm_zone` and `/utm_band` are set (see `Parameters`_)
+and always use that UTM zone, regardless of the lat/lon position.
 
 * Lat lon to UTM conversion - ``smarc_msgs/LatLonToUTM`` on ``/vehicle/dr/lat_lon_to_utm``
 * UTM to lat lon conversion - ``smarc_msgs/UTMToLatLon`` on ``/vehicle/dr/utm_to_lat_lon``
