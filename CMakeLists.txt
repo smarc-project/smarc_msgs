@@ -71,6 +71,8 @@ add_message_files(
   SidescanStamped.msg
   SidescanPositioned.msg
   ControllerStatus.msg
+  DVLBeam.msg
+  DVL.msg
 )
 
 ## Generate services in the 'srv' folder
