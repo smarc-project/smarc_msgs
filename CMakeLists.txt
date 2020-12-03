@@ -70,6 +70,7 @@ add_message_files(
   Sidescan.msg
   SidescanStamped.msg
   SidescanPositioned.msg
+  ControllerStatus.msg
 )
 
 ## Generate services in the 'srv' folder
