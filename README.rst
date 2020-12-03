@@ -85,9 +85,14 @@ the `TF`_ section for more details.
 * Pressure sensor - ``sensor_msgs/FluidPressure`` on ``/vehicle/core/pressure``
 * GPS - ``sensor_msgs/NavSatFix`` on ``/vehicle/core/gps``
 * Compass - ``sensor_msgs/MagneticField`` on ``/vehicle/core/compass``
-* DVL - ``smarc_msgs/DVL`` (copied from ``cola2_msgs/DVL``)
+* DVL - ``smarc_msgs/DVL`` (copied from ``uuv_sensor_ros_plugins_msgs/DVL``)
 * Leak - ``smarc_msgs/Leak`` on ``/vehicle/core/leak``
 * Battery - ``sensor_msgs/BatteryState`` on ``/vehicle/core/battery``
+
+We propose including the definition from
+`uuv_sensor_ros_plugins_msgs/DVL <https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg>`_
+as a message within ``smarc_msgs`` in order to remove unnecessary dependencies.
+Note that this definition is identical to the one in `cola2_msgs <https://bitbucket.org/iquarobotics/cola2_msgs/src/master/msg/DVL.msg>`_.
 
 **Core actuator interface**
 
