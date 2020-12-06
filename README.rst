@@ -72,6 +72,11 @@ The UTM zone parameters are used in dead reckoning interfaces and the planning (
 
 * UTM Zone - ``int`` as ``/utm_zone``, should be set at startup, the UTM longitude zone to use throughout the mission
 * UTM band - ``string`` as ``/utm_band``, should be set at startup, the UTM latitude band to use throughout the mission
+* Maximum dive depth - ``double`` as ``/max_dive_depth``, should be set at startup and be respected by controllers and mission execution (BT)
+* Minimum altitude - ``double`` as ``/min_altitude``, should be set at startup and be respected by controllers and mission execution (BT)
+* Maximum pitch - ``double`` as ``/max_pitch``, in either direction, should be set at startup and be respected by controllers and mission execution (BT)
+* Maximum roll - ``double`` as ``/max_roll``, in either direction,  should be set at startup and be respected by controllers and mission execution (BT)
+* Maximum dive time (s) - ``int`` as ``/max_roll``, in seconds, should be set at startup and be respected by mission execution (BT)
   
 Topic interfaces
 ================
