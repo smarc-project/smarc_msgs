@@ -9,6 +9,7 @@ project(smarc_msgs)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
+  geographic_msgs
   message_generation
   nav_msgs
   sensor_msgs
@@ -65,10 +66,12 @@ add_message_files(
   DualThrusterFeedback.msg
   FloatStamped.msg
   LatLonStamped.msg
-  CTDFeedback.msg
+  CTD.msg
   Sidescan.msg
-  SidescanStamped.msg
-  SidescanPositioned.msg
+  ControllerStatus.msg
+  SensorStatus.msg
+  DVLBeam.msg
+  DVL.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -77,18 +80,22 @@ add_service_files(
   CellOccupied.srv
   AddTask.srv
   AddTasks.srv
+  LatLonToUTM.srv
+  UTMToLatLon.srv
 )
 
 ## Generate actions in the 'action' folder
 add_action_files(
   FILES
   Empty.action
+  GotoWaypoint.action
 )
 
 ## Generate added messages and services with any dependencies listed here
 generate_messages(
   DEPENDENCIES
   geometry_msgs
+  geographic_msgs
   nav_msgs
   sensor_msgs
   std_msgs
