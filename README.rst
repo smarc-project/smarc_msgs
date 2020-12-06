@@ -288,6 +288,10 @@ These are all optional. They do not need to be published to fulfill the ROS inte
 
 **Payload sensor status topics**
 
+We propose adding a new message `smarc_msgs/SensorStatus <https://github.com/smarc-project/smarc_msgs/blob/interface/msg/SensorStatus.msg>`_
+that allows the sensor to announce it's current status, i.e. "active", "inactive" and "error".
+It is expected that sensors with this feedback publish to the following topics at 1hz, active or not:
+
 * Sidescan status - ``smarc_msgs/SensorStatus`` on ``/vehicle/payload/sidescan_status``, indicates status of sidescan
 
 Tools aiding implementation
