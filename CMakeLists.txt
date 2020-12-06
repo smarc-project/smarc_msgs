@@ -66,7 +66,7 @@ add_message_files(
   DualThrusterFeedback.msg
   FloatStamped.msg
   LatLonStamped.msg
-  CTDFeedback.msg
+  CTD.msg
   Sidescan.msg
   SidescanStamped.msg
   SidescanPositioned.msg
