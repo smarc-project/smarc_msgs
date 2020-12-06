@@ -51,8 +51,15 @@ Units
 
 The following rules of thumbs holds for all interfaces:
 
+* Always SI units unless otherwise specified
 * All distances and positions are in meters (m) unless otherwise specified
 * All angles are reported in radians (rad)
+* All speeds are in meters per second (m/s)
+* All temperatures are in degrees celsius (deg C)
+* Conductivity is reported as milli-Siemens per centimeter (mS/cm)
+* Percentages are in the range ``[0, 1]``
+* Depth is always distance below water surface
+* Altitude in the case of control refers to distance above sea floor but may otherwise refer to upwards distance in coordinate system
 * All coordinate systems are right-handed (see `TF`_ for more information)
 
 As discussed in the `TF`_ section, we are using ENU coordinate systems. As this includes angles,
@@ -152,7 +159,7 @@ at any given time.
 
 * Heading - ``std_msgs/Float64`` on ``/vehicle/ctrl/yaw_setpoint``
 * Depth - ``std_msgs/Float64`` on ``/vehicle/ctrl/depth_setpoint``
-* Altitude - ``std_msgs/Float64`` on ``/vehicle/ctrl/alt_setpoint``
+* Altitude - ``std_msgs/Float64`` on ``/vehicle/ctrl/altitude_setpoint``
 * Speed - ``std_msgs/Float64`` on ``/vehicle/ctrl/speed_setpoint``
 * Pitch - ``std_msgs/Float64`` on ``/vehicle/ctrl/pitch_setpoint``
 * Roll - ``std_msgs/Float64`` on ``/vehicle/ctrl/roll_setpoint``
@@ -208,6 +215,8 @@ altitude control, it also allows setting RPM or speed control. One can also disa
 these if other controllers should be used for these targets. Note that the action definition is
 future compatible in the sense that we can always add new fields in a source-compatible way.
 The action definition is therefore purposefully kept minimal in this proposal.
+Note that, at the moment, implementations only respect the xy position of the waypoint.
+The z component and orientation might be used in the future.
 
 **Actions**
 
