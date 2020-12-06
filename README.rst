@@ -160,6 +160,11 @@ setpoint topic ``/vehicle/ctrl/{target}_setpoint_freq`` that requires publishing
 to control but has no service. One can then use the ``control_throttle_service`` to automatically
 implement the actual interface, see `Controller implementation`_.
 
+If two controllers that are conflicting are activated at the same time, the result
+is currently undefined. The same holds for publishing to an actuator that is at the
+same time controlled by a controller. In the first case, it is however recommended that
+the controller activated second returns false upon request to activate.
+
 **Basic controller topics**
 
 If there are multiple controllers to control one target, they should generally all subscribe
