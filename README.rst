@@ -98,8 +98,12 @@ the `TF`_ section for more details.
 * GPS - ``sensor_msgs/NavSatFix`` on ``/vehicle/core/gps``
 * Compass - ``sensor_msgs/MagneticField`` on ``/vehicle/core/compass``
 * DVL - ``smarc_msgs/DVL`` (copied from ``uuv_sensor_ros_plugins_msgs/DVL``)
+* DVL status - ``smarc_msgs/SensorStatus`` (for more info, see `Payloads`_)
 * Leak - ``smarc_msgs/Leak`` on ``/vehicle/core/leak``
 * Battery - ``sensor_msgs/BatteryState`` on ``/vehicle/core/battery``
+
+We also define a service to turn on and off the DVL. If this is not possible, it should return false.
+* Enable/disable DVL - ``std_srvs/SetBool`` on ``/vehicle/payload/toggle_DVL`` - send true to turn on and false to turn off, returns true if successful
 
 We propose including the definition from
 `uuv_sensor_ros_plugins_msgs/DVL <https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_sensor_plugins/uuv_sensor_ros_plugins_msgs/msg/DVL.msg>`_
@@ -260,7 +264,7 @@ The ``utm -> vehicle/base_link`` is the most interesting transform as it provide
 
 These can be useful if we need to get poses in NED coordinates. It should not be used within the ROS system but only to relay information to other systems that used NED.
 
-* UTM NED frame - ``utm_ed`` - rotated parent to ``utm`` that allos getting vehicle pose in NED coordinates
+* UTM NED frame - ``utm_ned`` - rotated parent to ``utm`` that allos getting vehicle pose in NED coordinates
 
 **A note on NED oriented sensors**
 
