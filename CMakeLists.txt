@@ -69,6 +69,7 @@ add_message_files(
   CTD.msg
   Sidescan.msg
   ControllerStatus.msg
+  SensorStatus.msg
   DVLBeam.msg
   DVL.msg
 )
