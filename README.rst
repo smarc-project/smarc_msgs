@@ -287,6 +287,7 @@ These are all optional. They do not need to be published to fulfill the ROS inte
 * Enable/disable sidescan - ``std_srvs/SetBool`` on ``/vehicle/payload/toggle_sidescan`` - send true to turn on and false to turn off, returns true if successful
 
 **Payload sensor status topics**
+
 * Sidescan status - ``smarc_msgs/SensorStatus`` on ``/vehicle/payload/sidescan_status``, indicates status of sidescan
 
 Tools aiding implementation
