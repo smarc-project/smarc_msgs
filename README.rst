@@ -139,7 +139,8 @@ Near future extensions
 There are also a few preliminary ideas about how to combine the VBS and centre of gravity control.
 Basically, you would be able to set the buoyancy of the vehicle with the VBS command, and have the
 TCG and LCG commands control physical or virtual masses moving around the vehicle (water being pumped
-around the tanks in the case of Lolo).
+around the tanks in the case of Lolo). From initial discussions, it seems like both TCG and LCG should
+be defined as a value centered around 0, possible positive or negative percentages.
 
 **Publishers**
 
