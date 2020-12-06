@@ -1,6 +1,12 @@
 =======================
 SMARC AUV ROS Interface
 =======================
+.. image:: https://github.com/smarc-project/smarc_msgs/workflows/CI/badge.svg?branch=noetic-devel
+    :target: https://github.com/smarc-project/smarc_msgs/actions
+    :alt: GitHub Actions status
+.. image:: https://img.shields.io/badge/License-BSD%203--Clause-blue.svg
+    :target: https://opensource.org/licenses/BSD-3-Clause
+    :alt: License
 
 .. contents:: Table of Contents
    :depth: 2
