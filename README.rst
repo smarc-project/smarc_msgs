@@ -280,7 +280,7 @@ These are all optional. They do not need to be published to fulfill the ROS inte
 **Payload sensor topics**
 
 * Sidescan - ``smarc_msgs/SideScan`` on topic ``/vehicle/payload/sidescan``
-* CTD - ``smarc_msgs/CTDFeedback`` on topic ``/vehicle/payload/ctd``
+* CTD - ``smarc_msgs/CTD`` on topic ``/vehicle/payload/ctd``
 
 **Payload sensor services**
 
