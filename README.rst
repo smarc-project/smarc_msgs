@@ -97,8 +97,8 @@ the `TF`_ section for more details.
 * Pressure sensor - ``sensor_msgs/FluidPressure`` on ``/vehicle/core/pressure``
 * GPS - ``sensor_msgs/NavSatFix`` on ``/vehicle/core/gps``
 * Compass - ``sensor_msgs/MagneticField`` on ``/vehicle/core/compass``
-* DVL - ``smarc_msgs/DVL`` (copied from ``uuv_sensor_ros_plugins_msgs/DVL``)
-* DVL status - ``smarc_msgs/SensorStatus`` (for more info, see `Payloads`_)
+* DVL - ``smarc_msgs/DVL`` on ``/vehicle/core/dvl`` (copied from ``uuv_sensor_ros_plugins_msgs/DVL``)
+* DVL status - ``smarc_msgs/SensorStatus`` on ``/vehicle/core/dvl_status``, indicates status of DVL (for more info, see `Payloads`_)
 * Leak - ``smarc_msgs/Leak`` on ``/vehicle/core/leak``
 * Battery - ``sensor_msgs/BatteryState`` on ``/vehicle/core/battery``
 
@@ -285,6 +285,9 @@ These are all optional. They do not need to be published to fulfill the ROS inte
 **Payload sensor services**
 
 * Enable/disable sidescan - ``std_srvs/SetBool`` on ``/vehicle/payload/toggle_sidescan`` - send true to turn on and false to turn off, returns true if successful
+
+**Payload sensor status topics**
+* Sidescan status - ``smarc_msgs/SensorStatus`` on ``/vehicle/payload/sidescan_status``, indicates status of sidescan
 
 Tools aiding implementation
 ===========================
