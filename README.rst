@@ -109,6 +109,7 @@ the `TF`_ section for more details.
 * Battery - ``sensor_msgs/BatteryState`` on ``/vehicle/core/battery``
 
 We also define a service to turn on and off the DVL. If this is not possible, it should return false.
+
 * Enable/disable DVL - ``std_srvs/SetBool`` on ``/vehicle/payload/toggle_DVL`` - send true to turn on and false to turn off, returns true if successful
 
 We propose including the definition from
