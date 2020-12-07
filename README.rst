@@ -216,7 +216,7 @@ targets above publish to the following topics at 1hz, running or not:
 
 * Heading - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/yaw_controller_status``
 * Depth - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/depth_controller_status``
-* Altitude - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/alt_controller_status``
+* Altitude - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/altitude_controller_status``
 * Speed - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/speed_controller_status``
 * Pitch - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/pitch_controller_status``
 * Roll - ``smarc_msgs/ControllerStatus`` on ``/vehicle/ctrl/roll_controller_status``
