@@ -82,6 +82,7 @@ add_service_files(
   AddTasks.srv
   LatLonToUTM.srv
   UTMToLatLon.srv
+  NEDENURotation.srv
 )
 
 ## Generate actions in the 'action' folder
