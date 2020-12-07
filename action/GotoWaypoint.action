@@ -25,6 +25,6 @@ uint8 speed_control_mode
 float64 travel_rpm
 float64 travel_speed
 ---
-time ETA
----
 bool reached_waypoint
+---
+time ETA
