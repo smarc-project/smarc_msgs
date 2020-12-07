@@ -72,6 +72,7 @@ add_message_files(
   SensorStatus.msg
   DVLBeam.msg
   DVL.msg
+  LatLonOdometry.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -82,6 +83,8 @@ add_service_files(
   AddTasks.srv
   LatLonToUTM.srv
   UTMToLatLon.srv
+  NEDENURotation.srv
+  LatLonToUTMOdometry.srv
 )
 
 ## Generate actions in the 'action' folder
