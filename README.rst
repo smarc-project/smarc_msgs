@@ -59,7 +59,8 @@ The following rules of thumbs holds for all interfaces:
 
 * Always SI units unless otherwise specified
 * All distances and positions are in meters (m) unless otherwise specified
-* All angles are reported in radians (rad)
+* All angles except lat/lon are reported in radians (rad).
+* Latitude/longitude coordinates are in degrees (deg)
 * All speeds are in meters per second (m/s)
 * All temperatures are in degrees celsius (deg C)
 * Conductivity is reported as milli-Siemens per centimeter (mS/cm)
