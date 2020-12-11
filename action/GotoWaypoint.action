@@ -5,7 +5,7 @@ geometry_msgs/PoseStamped waypoint_pose
 # required proximity in meters to waypoint in
 # order to consider the waypoint as reached
 # (should be at least 1m)
-float64 goal_tolerance  = 1.0
+float64 goal_tolerance
 
 # Defines the type of z control used going there
 uint8 Z_CONTROL_NONE = 0
