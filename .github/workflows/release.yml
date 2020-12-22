@@ -19,7 +19,7 @@ jobs:
         run: |
           ls
           rosdep update
-          sudo apt install -y python-bloom fakeroot
+          sudo apt install -y python-bloom fakeroot dpkg-dev debhelper
       - name: Build package
         run: |
           ls
