@@ -27,17 +27,10 @@ jobs:
           bloom-release  --version
           bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro melodic
           fakeroot debian/rules binary
-          pwd
-          ls ..
-          echo $GITHUB_WORKSPACE
-          ls $GITHUB_WORKSPACE
-          echo $HOME
-          ls $HOME
-          cd ..
-          export WORKSPACE_PAR=$(pwd)
-          ls $WORKSPACE_PAR
+          mv ../ros-melodic-*.deb .
+          ls
       - name: Upload deb
         uses: actions/upload-artifact@v2
         with:
           name: bloom-release-deb
-          path: "${{env.WORKSPACE_PAR}}/ros-melodic-*.deb"
+          path: ros-melodic-*.deb
