@@ -1,0 +1,28 @@
+name: release-deb
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  release_build:
+      runs-on: ubuntu-latest
+      container:
+        image: rostooling/setup-ros-docker:ubuntu-bionic-ros-melodic-ros-base-latest
+        #options: -u root  # setup-node requires root access
+      steps:
+      - uses: actions/checkout@v2
+        with:
+          path: '.'
+      - name: Install deps
+        run: |
+          ls
+          sudo apt install python-bloom fakeroot
+      - name: Build package
+        run: |
+          ls
+          bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro melodic
+          fakeroot debian/rules binary
+          cd ..
+          ls
