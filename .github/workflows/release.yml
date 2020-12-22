@@ -18,7 +18,7 @@ jobs:
       - name: Install deps
         run: |
           ls
-          sudo apt install python-bloom fakeroot
+          sudo apt install -y python-bloom fakeroot
       - name: Build package
         run: |
           ls
