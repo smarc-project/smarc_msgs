@@ -29,8 +29,10 @@ jobs:
           fakeroot debian/rules binary
           pwd
           ls ..
+          echo $GITHUB_WORKSPACE
+          ls $GITHUB_WORKSPACE
       - name: Upload deb
         uses: actions/upload-artifact@v2
         with:
           name: bloom-release-deb
-          path: ros-melodic-*.deb
+          path: '${GITHUB_WORKSPACE}/ros-melodic-*.deb'
