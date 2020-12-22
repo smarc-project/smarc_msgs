@@ -18,10 +18,6 @@ jobs:
       - name: Install deps
         run: |
           ls
-          echo $ROS_DISTRO
-          echo $ROS_PACKAGE_PATH
-          #source /opt/ros/melodic/setup.bash
-          ls -a /opt/ros/melodic/setup.bash
           rosdep update
           rosdep install --from-path . --ignore-src --rosdistro melodic -y
           sudo apt install -y python-bloom fakeroot dpkg-dev debhelper
@@ -31,5 +27,9 @@ jobs:
           bloom-release  --version
           bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro melodic
           fakeroot debian/rules binary
-          cd ..
-          ls
+          ls ..
+      - name: Upload deb
+        uses: actions/upload-artifact@v2
+        with:
+          name: bloom-release-deb
+          path: ../*.deb
