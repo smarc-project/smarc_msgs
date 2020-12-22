@@ -27,9 +27,10 @@ jobs:
           bloom-release  --version
           bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro melodic
           fakeroot debian/rules binary
-          ls ..
+          cd ..
+          ls
       - name: Upload deb
         uses: actions/upload-artifact@v2
         with:
           name: bloom-release-deb
-          path: ../*.deb
+          path: ros-melodic-*.deb
