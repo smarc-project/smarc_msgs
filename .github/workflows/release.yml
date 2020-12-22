@@ -40,4 +40,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: bloom-release-deb
-          path: "${WORKSPACE_PAR}/ros-melodic-*.deb"
+          path: "${{env.WORKSPACE_PAR}}/ros-melodic-*.deb"
