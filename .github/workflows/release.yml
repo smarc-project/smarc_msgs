@@ -31,8 +31,13 @@ jobs:
           ls ..
           echo $GITHUB_WORKSPACE
           ls $GITHUB_WORKSPACE
+          echo $HOME
+          ls $HOME
+          cd ..
+          export WORKSPACE_PAR=$(pwd)
+          ls $WORKSPACE_PAR
       - name: Upload deb
         uses: actions/upload-artifact@v2
         with:
           name: bloom-release-deb
-          path: '${GITHUB_WORKSPACE}/ros-melodic-*.deb'
+          path: "${WORKSPACE_PAR}/ros-melodic-*.deb"
