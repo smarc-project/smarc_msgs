@@ -18,10 +18,12 @@ jobs:
       - name: Install deps
         run: |
           ls
+          rosdep update
           sudo apt install -y python-bloom fakeroot
       - name: Build package
         run: |
           ls
+          bloom-release  --version
           bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro melodic
           fakeroot debian/rules binary
           cd ..
