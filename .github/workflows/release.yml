@@ -9,10 +9,14 @@ jobs:
   release_build:
       strategy:
         matrix:
-          distro: [melodic, noetic]
+          include:
+            - distro: melodic
+              ubuntu: bionic
+            - distro: noetic
+              ubuntu: focal
       runs-on: ubuntu-latest
       container:
-        image: rostooling/setup-ros-docker:ubuntu-bionic-ros-${{ matrix.distro }}-ros-base-latest
+        image: rostooling/setup-ros-docker:ubuntu-${{ matrix.ubuntu }}-ros-${{ matrix.distro }}-ros-base
         #options: -u root  # setup-node requires root access
       steps:
       - uses: actions/checkout@v2
