@@ -36,7 +36,7 @@ jobs:
         run: |
           ls
           bloom-release  --version
-          bloom-generate rosdebian --os-name ubuntu --os-version bionic --ros-distro ${{ matrix.distro }}
+          bloom-generate rosdebian --os-name ubuntu --os-version ${{ matrix.ubuntu }} --ros-distro ${{ matrix.distro }}
           fakeroot debian/rules binary
           mv ../ros-${{ matrix.distro }}-*.deb .
           zip bloom-${{ matrix.distro }}-release-deb.zip ros-${{ matrix.distro }}-*.deb
