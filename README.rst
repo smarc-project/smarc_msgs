@@ -232,7 +232,7 @@ that these are often long-running tasks. The higher-level decision making system
 therefore needs ability to monitor progress or cancel the task. actionlib provides an interface for
 both of these things, together with convenience libraries in python and c++ to implement actions.
 
-We propose adding the `smarc_msgs/GotoWaypoint <https://github.com/smarc-project/smarc_msgs/blob/interface/action/GotoWaypoint.action>`_
+We propose adding the `smarc_msgs/GotoWaypoint <https://github.com/smarc-project/smarc_msgs/blob/noetic-devel/action/GotoWaypoint.action>`_
 action to specify a waypoint to travel to. In addition to specifying navigation by depth or
 altitude control, it also allows setting RPM or speed control. One can also disable all of
 these if other controllers should be used for these targets. Note that the action definition is
