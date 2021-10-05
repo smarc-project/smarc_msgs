@@ -29,6 +29,7 @@ jobs:
       - name: Install deps
         run: |
           ls
+          sudo apt update
           rosdep update
           rosdep install --from-path . --ignore-src --rosdistro ${{ matrix.distro }} -y
           sudo apt install -y ${{ matrix.bloom }} fakeroot dpkg-dev debhelper zip
