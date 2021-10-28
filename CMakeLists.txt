@@ -73,6 +73,7 @@ add_message_files(
   DVLBeam.msg
   DVL.msg
   LatLonOdometry.msg
+  GotoWaypoint.msg
 )
 
 ## Generate services in the 'srv' folder
