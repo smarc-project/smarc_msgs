@@ -28,3 +28,4 @@ float64 travel_speed
 bool reached_waypoint
 ---
 time ETA
+string feedback_message
