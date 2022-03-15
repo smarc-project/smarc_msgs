@@ -2,8 +2,8 @@
 Changelog for package smarc_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2022-03-15)
+------------------
 * Merge pull request `#25 <https://github.com/smarc-project/smarc_msgs/issues/25>`_ from KKalem/noetic-devel
   Added a string field for action feedback to GotoWaypointAction
 * Added a string field for action feedback to GotoWaypointAction
