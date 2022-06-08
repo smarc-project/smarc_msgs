@@ -1,7 +1,7 @@
 # target pose in local UTM zone ENU coordinates
 # UTM zone used defined by global
 # /utm_zone and /utm_band ROS params
-geometry_msgs/PoseStamped waypoint_pose
+geometry_msgs/PoseStamped pose
 # required proximity in meters to waypoint in
 # order to consider the waypoint as reached
 # (should be at least 1m)
@@ -24,3 +24,6 @@ uint8 SPEED_CONTROL_SPEED = 2
 uint8 speed_control_mode
 float64 travel_rpm
 float64 travel_speed
+
+float64 lat
+float64 lon
