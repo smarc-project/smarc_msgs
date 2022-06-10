@@ -27,3 +27,4 @@ float64 travel_speed
 
 float64 lat
 float64 lon
+string name
