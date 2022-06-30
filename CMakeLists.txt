@@ -74,6 +74,7 @@ add_message_files(
   DVL.msg
   LatLonOdometry.msg
   GotoWaypoint.msg
+  MissionControl.msg
 )
 
 ## Generate services in the 'srv' folder
