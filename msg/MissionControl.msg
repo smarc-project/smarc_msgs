@@ -1,5 +1,7 @@
 # name of the plan
 string name
+# a hash derived frm this entire message. optional.
+string hash
 
 # start or stop the current plan
 # stop will stop and delete the plan
