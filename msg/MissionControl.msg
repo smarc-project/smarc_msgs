@@ -32,6 +32,7 @@ uint8 FB_STOPPED = 1
 uint8 FB_PAUSED = 2
 uint8 FB_EMERGENCY = 3
 uint8 FB_RECEIVED = 4
+uint8 FB_COMPLETED = 5
 uint8 plan_state
 # and some extra string, because why not
 string feedback_str
