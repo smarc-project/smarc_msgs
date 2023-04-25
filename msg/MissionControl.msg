@@ -2,6 +2,10 @@
 string name
 # a hash derived frm this entire message. optional.
 string hash
+# a timeout in seconds, in which the vehicle should stop
+# doing what this mission control message wants it to do
+# after trying for this many seconds
+uint64 timeout
 
 # start or stop the current plan
 # stop will stop and delete the plan
