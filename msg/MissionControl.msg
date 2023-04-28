@@ -2,6 +2,10 @@
 string name
 # a hash derived frm this entire message. optional.
 string hash
+# a timeout in seconds, in which the vehicle should stop
+# doing what this mission control message wants it to do
+# after trying for this many seconds
+uint64 timeout
 
 # start or stop the current plan
 # stop will stop and delete the plan
@@ -28,6 +32,7 @@ uint8 FB_STOPPED = 1
 uint8 FB_PAUSED = 2
 uint8 FB_EMERGENCY = 3
 uint8 FB_RECEIVED = 4
+uint8 FB_COMPLETED = 5
 uint8 plan_state
 # and some extra string, because why not
 string feedback_str
