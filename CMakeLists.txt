@@ -75,6 +75,7 @@ add_message_files(
   LatLonOdometry.msg
   GotoWaypoint.msg
   MissionControl.msg
+  BTCommand.msg
 )
 
 ## Generate services in the 'srv' folder
