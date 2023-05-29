@@ -1,6 +1,0 @@
-smarc_msgs/GotoWaypoint waypoint
----
-bool reached_waypoint
----
-time ETA
-string feedback_message

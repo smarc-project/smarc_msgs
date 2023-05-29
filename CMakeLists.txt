@@ -73,9 +73,7 @@ add_message_files(
   DVLBeam.msg
   DVL.msg
   LatLonOdometry.msg
-  GotoWaypoint.msg
-  MissionControl.msg
-  BTCommand.msg
+
 )
 
 ## Generate services in the 'srv' folder
@@ -93,8 +91,6 @@ add_service_files(
 ## Generate actions in the 'action' folder
 add_action_files(
   FILES
-  Empty.action
-  GotoWaypoint.action
 )
 
 ## Generate added messages and services with any dependencies listed here
