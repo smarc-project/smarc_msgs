@@ -73,7 +73,7 @@ add_message_files(
   DVLBeam.msg
   DVL.msg
   LatLonOdometry.msg
-
+  ThrusterDC.msg
 )
 
 ## Generate services in the 'srv' folder
