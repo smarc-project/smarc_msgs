@@ -17,7 +17,7 @@ float64 altitude
 float64 theta
 
 # Termination condition: maximum duration of the task. Set to zero if not used
-duration max_duration
+builtin_interfaces/Duration max_duration
 
 # Action server topic
 string action_topic

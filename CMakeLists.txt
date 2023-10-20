@@ -11,12 +11,10 @@ find_package(rosidl_default_generators REQUIRED)
 
 find_package(geometry_msgs REQUIRED)
 find_package(geographic_msgs REQUIRED)
-find_package(message_generation REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(actionlib REQUIRED)
-find_package(actionlib_msgs REQUIRED)
+find_package(builtin_interfaces REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/CellOccupied.srv"
@@ -47,7 +45,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ThrusterFeedback.msg"
   "msg/ThrusterRPM.msg"
   "action/Empty.action"
-  DEPENDENCIES geometry_msgs geographic_msgs nav_msgs sensor_msgs std_msgs
+  DEPENDENCIES geometry_msgs geographic_msgs nav_msgs sensor_msgs std_msgs builtin_interfaces
 )
 
 

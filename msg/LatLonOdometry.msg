@@ -1,5 +1,5 @@
 # This represents an estimate of a position and velocity in free space.  
-Header header
+std_msgs/Header header
 geographic_msgs/GeoPose lat_lon_pose
 # Row-major representation of the 6x6 covariance matrix
 # The orientation parameters use a fixed-axis representation.

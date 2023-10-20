@@ -25,11 +25,11 @@
 # DVLBeams are optional. If they are set they contain individual ranges and 1D
 # doppler velocity estimates orthogonal to the ray.
 
-Header header
+std_msgs/Header header
 # Measured velocity [m/s]
 geometry_msgs/Vector3 velocity
 # Row major, xyz axes
 float64[9] velocity_covariance
 # Altitude of the vehicle
 float64 altitude
-DVLBeam[] beams
+smarc_msgs/DVLBeam[] beams
