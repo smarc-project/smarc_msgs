@@ -68,6 +68,7 @@ add_message_files(
   LatLonStamped.msg
   CTD.msg
   Sidescan.msg
+  SyncedSidescan.msg
   ControllerStatus.msg
   SensorStatus.msg
   DVLBeam.msg
